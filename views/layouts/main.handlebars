@@ -1,21 +1,22 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
     <header>
-        <a href="/">Go Home</a>
-                {{#if logged_in}}
-                <button>Logout</button>
-{{else}}
+      <a href="/">Go Home</a>
+      {{#if logged_in}}
+        <button>Logout</button>
+        <script src="./js/logout.js"></script>
+      {{else}}
 
-                <a href="/signup">Join</a>
-{{/if}}
+        <a href="/signup">Join</a>
+      {{/if}}
     </header>
-<main>{{{body}}}</main>
-<footer>Bottom of page</footer>
-</body>
+    <main>{{{body}}}</main>
+    <footer>Bottom of page</footer>
+  </body>
 </html>
