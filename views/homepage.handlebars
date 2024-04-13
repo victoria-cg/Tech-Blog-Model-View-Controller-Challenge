@@ -1,5 +1,7 @@
 <h1>Homepage!</h1>
 <p>{{user}}</p>
-{{#each blogs as |blog|}}
-<h1>{{blog.title}}</h1>
+<!--handlebars loop to iterate over all instances of the Blog model and get their titles, etc (other columns from database) |Blog| is capitalized because it is the Blog class/model name-->
+{{#each blogs as |Blog|}}
+<h1>{{Blog.title}}</h1>
+<p>{{Blog.description}}</p>
 {{/each}}
