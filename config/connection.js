@@ -4,7 +4,7 @@ const Sequelize = require('sequelize');
 require('dotenv').config();
 
 let sequelize;
-//JAWSDB_URL is for deploying mysql database to heroku
+//JAWSDB_URL is for deploying mysql database to heroku and process.env is for running on heroku server
 //else statement is for running app with local host if not deployed to heroku
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);

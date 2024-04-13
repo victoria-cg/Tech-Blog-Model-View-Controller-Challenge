@@ -1,5 +1,6 @@
 const router = require('express').Router();
 
+//middleware tracks when homeroutes are hit and logs that to console
 router.use((req, res, next) => {
     console.log("===============================HOMEROUTES HIT ==================================")
     next()
@@ -15,6 +16,11 @@ router.get('/', (req, res) => {
 router.get("/signup", (req, res) => {
     console.log("===================Signup route hit======================")
     res.render("signup")
+})
+
+router.get("/login", (req, res) => {
+    console.log("=====login route hit======")
+    res.render("loginPage")
 })
 
 module.exports = router
