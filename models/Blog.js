@@ -28,6 +28,7 @@ Blog.init(
     },
   },
 },
+//model name in this section should be lowercase
   {
     sequelize,
     timestamps: false,
