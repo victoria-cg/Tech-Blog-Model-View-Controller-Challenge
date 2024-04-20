@@ -34,14 +34,21 @@ router.get('/', async (req, res) => {
     }
 });
 
+//homeroute endpoint for dashboard handlebars view, connects /dashboard URL endpoint to the correct view with response.render
+//withAuth variable inside the get request makes sure the user is authenticated to see the dashboard
+router.get("/dashboard", withAuth, (req, res) => {
+  console.log("========dashboard route hit========");
+  res.render("dashboard");
+});
+//home route to render the signup handlebars view with the /signup URL endpoint
 router.get("/signup", (req, res) => {
     console.log("===================Signup route hit======================")
     res.render("signup")
-})
-
+});
+//home route to render the login handlebars view with the /login URL endpoint
 router.get("/login", (req, res) => {
     console.log("=====login route hit======")
     res.render("loginPage")
-})
+});
 
 module.exports = router
