@@ -36,10 +36,27 @@ router.get('/', async (req, res) => {
 
 //homeroute endpoint for dashboard handlebars view, connects /dashboard URL endpoint to the correct view with response.render
 //withAuth variable inside the get request makes sure the user is authenticated to see the dashboard
-router.get("/dashboard", withAuth, (req, res) => {
-  console.log("========dashboard route hit========");
-  res.render("dashboard");
-});
+
+router.get("/dashboard", withAuth, async(req,res) => {
+    try {
+     //findAll return an array of objects from the blog model/data where the user is the specific logged in user
+     //try catch block allows us to catch and log error responses
+     const userBlogData = await Blog.findAll({where: {
+         user_id: req.session.user_id,
+     }}).catch(err => {
+         console.log(err);
+         res.status(500).json(err);
+     });
+ //.map takes one array, does another function on that array data, an returns a new array of results
+ //in this case we take the array of user-specific blog objects from userBlogData, and we use {plain:true} to serialize the data so we only get the infomration we need and put it into a new array called 'blogs'
+     const userBlogs = userBlogData.map((userBlog) => userBlog.get({plain: true}));
+     //response renders handlebars.js dashboard view and passes it the serialized user-specific blog data, session/user login/auth information
+     res.render('dashboard', {userBlogs, logged_in: req.session.logged_in});
+    } catch (error) {
+     //catch and respond with error message if not successful
+     res.status(500).json(err);
+    }
+ });
 //home route to render the signup handlebars view with the /signup URL endpoint
 router.get("/signup", (req, res) => {
     console.log("===================Signup route hit======================")
