@@ -1,11 +1,11 @@
 [
     {
-        "title": "Object relational mapping",
+        "title": "Object Relational Mapping",
         "description": "Object relational mapping with ORM technologies like sequelize allow you to use javascript objects to model your SQL database tables.",
         "user_id": "1"
       },
       {
-        "title": "node.js",
+        "title": "Node.js",
         "description": "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows you to run JavaScript outside of the browser and includes many packages. The packages you can install allow for many different developent functionalities such as running a server with express.js or collectin user input with inquirer.",
         "user_id": "1"
       }
