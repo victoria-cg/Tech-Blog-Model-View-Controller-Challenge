@@ -1,1 +1,6 @@
-<h2>Dashboard</h2>
+<h2>Your Dashboard</h2>
+<!--uses handlebars for each loop syntax iterate over the userBlogs sent from the blogs/dashboard API and render them as instances of the Blog model -->
+{{#each userBlogs as |Blog|}}
+<h1>{{Blog.title}}</h1>
+<p>{{Blog.description}}</p>
+{{/each}}
